@@ -12,6 +12,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.ColumnDefault;
+
 
 @Entity
 @Table(name="Customers")
@@ -28,6 +30,7 @@ public class Customer {
 	String email;
 	String photo;
 	@NotNull(message = "Hãy chọn trạng thái tài khoản")
+	@ColumnDefault("true")
 	Boolean activated;
 		
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
